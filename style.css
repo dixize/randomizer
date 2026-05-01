@@ -1,0 +1,183 @@
+:root {
+    --primary: #00f2ff;
+    --secondary: #7000ff;
+    --bg-dark: #0a0b10;
+    --glass: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-dark);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Фоновое свечение */
+.bg-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1a1b3a 0%, #0a0b10 100%);
+    z-index: -1;
+}
+
+.main-container {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    text-align: center;
+    position: relative;
+}
+
+h1.glitch {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 5px;
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 30px;
+}
+
+/* Переключатель */
+.mode-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    background: rgba(0,0,0,0.3);
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.mode-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    transition: 0.3s;
+    font-size: 0.8rem;
+}
+
+.mode-btn.active {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 0 0 15px var(--primary);
+}
+
+/* Поля ввода */
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-box {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+input, textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Кнопка */
+#generate-btn {
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 5px 20px rgba(0, 242, 255, 0.3);
+    margin-top: 10px;
+}
+
+#generate-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.5);
+}
+
+/* Результат */
+.result-display {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid var(--border);
+}
+
+#result-label {
+    font-size: 0.8rem;
+    opacity: 0.5;
+    margin-bottom: 10px;
+}
+
+#result-value {
+    font-size: 3.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 20px var(--primary);
+    word-break: break-all;
+}
+
+/* Анимация пульсации */
+.pulse {
+    animation: pulse-animation 0.5s ease-out;
+}
+
+@keyframes pulse-animation {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
